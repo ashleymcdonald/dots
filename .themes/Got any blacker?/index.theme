@@ -1,10 +1,10 @@
 [X-GNOME-Metatheme]
-Name=Candra-Theme-3.20-Darker
+Name=Got any blacker?
 Type=X-GNOME-Metatheme
 Comment=A Qt-like theme for Gtk
 Encoding=UTF-8
-GtkTheme=Candra-Theme-3.20-Darker
+GtkTheme=Got any blacker?
 MetacityTheme=Adwaita
-IconTheme=Adwaita
+IconTheme=MaterialOS-Orange
 CursorTheme=Adwaita
 CursorSize=24
