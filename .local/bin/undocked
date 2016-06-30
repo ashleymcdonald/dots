@@ -1,0 +1,5 @@
+#!/bin/bash
+stopSynergy
+cp ~/.conky/silvs/solar.hidpi ~/.conky/silvs/solar
+# displayLink
+export ELM_SCALE=1.2

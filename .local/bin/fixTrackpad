@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+
+sudo setkeycodes e03e 128
+##xmodmap -e 'keycode 136 = XF86TouchpadToggle'
+
+
+# set my moouse settings!
+synclient HorizTwoFingerScroll=1
+synclient VertScrollDelta=-111
+synclient HorizScrollDelta=-111
+synclient TapButton1=1

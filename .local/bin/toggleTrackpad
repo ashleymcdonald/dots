@@ -1,0 +1,6 @@
+#!/bin/sh
+device_name='SYNA2B29:00 06CB:77C6'
+property=138
+flipped_state=$(xinput list-props "$device_name" |
+                awk "/\\($property\\)/ {print 1 - \$NF}")
+xinput set-prop "$device_name" "$property" "$flipped_state"

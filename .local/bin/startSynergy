@@ -1,0 +1,2 @@
+#!/bin/bash
+synergyc -f --enable-crypto -d WARNING --daemon elzar.silvs.org

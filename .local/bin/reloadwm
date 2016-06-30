@@ -1,0 +1,19 @@
+#!/usr/bin/env bash
+
+killall stalonetray
+
+  $LOCAL_ETC/mytheme/bin/init && \
+    notify-send -u low "theme reloaded successfully" || \
+    notify-send -u low "failed to reload theme"; \
+  $LOCAL_ETC/sxhkd/bin/reload && \
+    notify-send -u low "sxhkd reloaded successfully" || \
+    notify-send -u low "failed to reload sxhkd"; \
+  $LOCAL_ETC/bspwm/bin/reload && \
+    notify-send -u low "bspwm reloaded successfully" || \
+    notify-send -u low "failed to reload bspwm"; \
+  $LOCAL_ETC/compton/bin/reload && \
+    notify-send -u low "compton reloaded successfully" || \
+    notify-send -u low "failed to reload compton"; \
+  bash -c 'sleep 3 && xdotool click 1' &
+
+

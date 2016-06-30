@@ -1,0 +1,5 @@
+#!/bin/bash
+startSynergy
+cp ~/.conky/silvs/solar.docked ~/.conky/silvs/solar
+# displayLink
+export ELM_SCALE=1

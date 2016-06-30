@@ -1,0 +1,20 @@
+#!/usr/bin/env bash
+
+function main {
+  local image="$CURRENT_THEME/lockscreen.png"
+  local externalmon='false'
+
+  if ! [[ -e "$image" ]]; then
+    unset image
+  fi
+
+  xrandr -q | grep "HDMI-1 connected" && externalmon='true'
+
+  $externalmon && xrandr --output HDMI-1 --brightness 0
+
+  i3lock -n -u -e ${image:+-t -i $image}
+
+  $externalmon && xrandr --output HDMI-1 --brightness 1
+}
+
+main "$@"

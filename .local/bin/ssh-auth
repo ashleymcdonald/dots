@@ -1,0 +1,5 @@
+#!/bin/bash
+echo "Adding passwordless login to: " $1
+cat ~/.ssh/id_rsa.pub | ssh $1 'mkdir -p ~/.ssh && touch ~/.ssh/authorized_keys && chmod og-rw ~/.ssh/authorized_keys && chmod a-x ~/.ssh/authorized_keys && chmod 700 ~/.ssh && cat >> .ssh/authorized_keys'
+echo "All done ;)"
+

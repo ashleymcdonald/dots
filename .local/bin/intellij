@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+
+export _JAVA_AWT_WM_NONREPARENTING=1
+
+_JAVA_AWT_WM_NONREPARENTING=1 /home/silvs/Applications/IntelliJ/bin/idea.sh

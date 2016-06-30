@@ -1,0 +1,29 @@
+#!/bin/sh
+echo "Adding 1080p to the laptop display"
+xrandr --setprovideroutputsource 1 0
+xrandr --newmode "1920x1080@60" 182.28 1920 1952 2640 2672 1080 1102 1113 1135
+xrandr --addmode eDP-1 "1920x1080@60"
+xrandr --addmode DVI-I-1 "1920x1080@60"
+
+
+echo "ReStarting DisplayLink Service.."
+sudo systemctl restart displaylink.service
+
+sleep 1
+# get the display id...
+display2=$( xrandr | grep -e "DVI\-I\-[0-9]*" -o )
+
+# check to see if the display is listed
+
+if [ -z "$display2" ]; then
+	echo "Shit; didnt find the adaptor :("
+else
+	echo "All good :)"
+fi
+
+#xrandr --setprovideroutputsource 1 0
+#xrandr --newmode "1920x1080@60" 182.28 1920 1952 2640 2672 1080 1102 1113 1135
+#xrandr --addmode eDP-1 "1920x1080@60"
+
+xrandr --setprovideroutputsource 1 0
+

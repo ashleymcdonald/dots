@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+dmenu_run -p "SiLVsOS:" -sb "#2d5d8c" -sf "#000000" -fn NotoSans-10:regular -h 34 
+

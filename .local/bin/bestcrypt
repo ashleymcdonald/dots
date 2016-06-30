@@ -1,0 +1,13 @@
+
+sudo modprobe bestcrypt 
+sudo modprobe bc_3des 
+sudo modprobe bc_bf128 
+sudo modprobe bc_bf448 
+sudo modprobe bc_blowfish 
+sudo modprobe bc_cast 
+sudo modprobe bc_des 
+sudo modprobe bc_gost 
+sudo modprobe bc_idea 
+sudo modprobe bc_rijn 
+sudo modprobe bc_twofish
+
