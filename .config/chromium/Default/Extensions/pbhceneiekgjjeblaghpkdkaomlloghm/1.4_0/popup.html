@@ -1,0 +1,61 @@
+<html>
+    <head>
+        <script src="js/framework.js"></script>
+        <script src="js/popup.js"></script>
+        <link rel="stylesheet" type="text/css" href="popup.css">
+        <link href='http://fonts.googleapis.com/css?family=Roboto:400,300,500,700'
+              rel='stylesheet' type='text/css'>
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+              rel="stylesheet">
+        <link rel="import" href="elements/download-item.html">
+    </head>
+    <body>
+        <div class="header">
+            <div class="infobox">
+                <img id="logo" src="img/nzbget-arrow.svg">
+                <dl>
+                    <dt id="lbl_speed">0 KB/s</dt>
+                    <dt id="lbl_remainingmb">0 MiB</dt>
+                    <dt id="lbl_remainingdisk">0 MiB</dt>
+                </dl>
+                <div class="control">
+                    <i id="tgl_pause" class="material-icons">pause</i>
+                    <!--<i id="tgl_alarm" class="material-icons">more_vert</i>-->
+                </div>
+            </div>
+            <div class="tabs">
+                <div class="tab active" data-container="download_container">
+                    Downloads
+                </div>
+                <div class="tab" data-container="history_container">
+                    History
+                </div>
+            </div>
+        </div>
+        <div class="body">
+            <div id="download_container" class="active">
+                <div class="inactive">No active downloads.</div>
+                <div id="download_list">
+                </div>
+            </div>
+            <div id="history_container">
+                <div class="searchcontainer">
+                    <i class="material-icons">search</i>
+                    <input class="search"
+                           type="search"
+                           incremental="true"
+                           placeholder="Search">
+                </div>
+                <div id="history_list">
+                </div>
+            </div>
+        </div>
+        <div class="shroud">
+            <div class="messagebox">
+                <h2></h2>
+                <p></p>
+                <div class="btnbar"></div>
+            </div>
+        </div>
+    </body>
+</html>
