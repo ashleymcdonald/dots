@@ -1,0 +1,100 @@
+#!/usr/bin/env sh
+alias dots='git --git-dir=$HOME/.dots.git --work-tree=$HOME'
+alias dots-ls='dots ls-files'
+alias dots-ls-untracked='dots status -u .'
+
+alias externalip="curl -s checkip.dyndns.org | sed 's/[^0-9.]//g'"
+
+alias reload.compton='$LOCAL_ETC/compton/bin/reload'
+alias reload.sxhkd='$LOCAL_ETC/sxhkd/bin/reload'
+alias reload.dunst='$LOCAL_ETC/dunst/bin/reload'
+alias reload.bspwm='$LOCAL_ETC/bspwm/bin/reload'
+alias reload.lemonbuddy='$LOCAL_ETC/lemonbuddy/bin/reload'
+alias reload.xkbmap='$LOCAL_ETC/xorg/xkbmaprc'
+
+alias gothemes='cd $LOCAL_ETC/themer/themes'
+alias gobspwm='cd $LOCAL_ETC/bspwm'
+alias errbspwm='vim $XDG_CACHE_HOME/bspwm/stderr'
+alias erri3='vim $XDG_CACHE_HOME/i3/stderr'
+alias errsxhkd='vim $XDG_CACHE_HOME/sxhkd/stderr'
+
+alias xupd="xbps-install -Su"
+alias xquery="xbps-query"
+alias xrem="xbps-remove"
+alias xbelongs="xbps-query -o"
+alias xrequiredby="xbps-query -X"
+alias xlistcontents="xbps-query -f"
+alias xbuild="./xbps-src" ;
+alias xbuild-clean="./xbps-src zap && ./xbps-src binary-bootstrap"
+alias xbuild-test="./xbps-src-testbuild"
+alias xcd='cd $XBPS_DISTDIR'
+
+alias xorglog="vim /var/log/Xorg.0.log"
+alias xorglogbumblebee="vim /var/log/Xorg.8.log"
+alias xorgconf="vim /etc/X11/xorg.conf.d/20-gpu.conf"
+alias xorgconfbumblebee="vim /etc/bumblebee/xorg.conf.nvidia"
+
+alias ga="git add"
+alias gd="git diff"
+alias gds="git diff --staged"
+alias gco="git checkout"
+alias gst="git status"
+alias ggpur="git pull --rebase"
+
+# TODO: Create a symlink to vim/nvim instead to make
+# sure that the same version is used everywhere
+alias vi="vim"
+alias ncmpcpp="ncmpcpp -b $XDG_CONFIG_HOME/ncmpcpp/bindings"
+alias xrdb-reload='xrdb -merge -I$LOCAL_ETC/xorg $LOCAL_ETC/xorg/xresources'
+alias gpg-decrypt-clipboard='xclip -o | gpg --decrypt | xclip'
+alias reboot="sudo reboot"
+alias poweroff="sudo poweroff"
+alias halt="sudo halt"
+
+alias grepr="grep -r"
+alias egrepr="egrep -r"
+
+alias perlcd='cd $PERL_HOME'
+alias cpan="perlcd && perl -MCPAN -e shell"
+
+# Default command flags
+alias mv="mv -v"
+alias ln="ln -v"
+alias cp="cp -v"
+alias rm="rm -v"
+alias ls="ls --group-directories-first --dereference-command-line-symlink-to-dir --color=auto"
+alias ll="ls --dereference-command-line-symlink-to-dir -lh"
+alias l="ls -la --dereference-command-line-symlink-to-dir"
+alias info="info --vi-keys"
+alias pgrep="pgrep -l"
+alias grep="grep -i --color=auto"
+alias egrep="egrep --color=auto"
+
+# Sudo cmds
+alias sv="sudo sv"
+alias lvs="sudo lvs"
+alias vgs="sudo vgs"
+alias lvdisplay="sudo lvdisplay"
+alias vgdisplay="sudo vgdisplay"
+alias xbps-install="sudo xbps-install"
+alias xbps-query="sudo xbps-query"
+alias xbps-remove="sudo xbps-remove"
+alias xbps-pkgdb="sudo xbps-pkgdb"
+alias xbps-reconfigure="sudo xbps-reconfigure"
+
+# Spelling corrections
+alias vmi="vim"
+alias exi="exit"
+alias exti="exit"
+alias eitx="exit"
+alias eixt="exit"
+alias exiyt="exit"
+alias exity="exit"
+
+# vim:ft=sh
+
+
+
+## alias l='ls++ --potsf -a '
+alias 'ps?'='ps ax | grep '
+
