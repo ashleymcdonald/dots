@@ -1,0 +1,55 @@
+#!/usr/bin/env bash
+
+min_bright=90
+max_bright=200
+threshold=75
+transparency="cc"
+
+wallpapers=(~/Pictures/Wallpapers/*)
+IMG=${1:-`printf "%s\n" "${wallpapers[RANDOM % ${#wallpapers[@]}]}"`}
+
+rm ~/.wallpaper
+ln -s $IMG ~/.wallpaper
+
+feh --bg-fill $IMG
+
+############################
+# Termite
+cat $LOCAL_ETC/termite/head > $LOCAL_ETC/termite/config
+schemer2  -minBright $min_bright -maxBright $max_bright -threshold $threshold -format img::termite -in $IMG >> $LOCAL_ETC/termite/config
+
+############################
+# Terminator
+cat $LOCAL_ETC/terminator/head > $LOCAL_ETC/terminator/config
+schemer2  -minBright $min_bright -maxBright $max_bright -threshold $threshold -format img::terminator -in $IMG >> $LOCAL_ETC/terminator/config
+
+
+base_color=`schemer2  -minBright $min_bright -maxBright $max_bright -threshold $threshold -format img::colors -in $IMG  | head -n1`
+base_color_transparency=`echo $base_color | sed "s/#/#$transparency/"`
+# echo "The base color is.. $base_color .."
+
+############################
+# bspwm
+cat $CURRENT_THEME/bspwm | sed -e "s/color_focused_border.*/color_focused_border=\"$base_color\"/" > /tmp/bspwm.theme
+mv /tmp/bspwm.theme $CURRENT_THEME/bspwm
+
+############################
+# lemonbar
+cat $CURRENT_THEME/lemonbuddy | sed -e "s/core_color = .*/core_color = $base_color_transparency/" > /tmp/lemonbuddy.theme
+mv /tmp/lemonbuddy.theme $CURRENT_THEME/lemonbuddy
+
+############################
+# dmenu
+cat $LOCAL_BIN/dmenu.mine | sed -e "s/-sb \"#[^\"]*/-sb \"$base_color/" > /tmp/dmenu.theme
+mv /tmp/dmenu.theme $LOCAL_BIN/dmenu.mine
+chmod +x $LOCAL_BIN/dmenu.mine
+
+cat $XDG_CONFIG_HOME/networkmanager-dmenu/config.ini | sed -e "s/sb = #[0-9a-z]*/sb = $base_color/" > /tmp/networkmanager-dmenu.theme
+mv /tmp/networkmanager-dmenu.theme $XDG_CONFIG_HOME/networkmanager-dmenu/config.ini
+
+
+
+
+# convert to cc density for lemonbar
+
+# `echo $mytest | sed "s/#/#$transparency/"` 
