@@ -1,0 +1,14 @@
+#!/usr/bin/env bash
+#
+# Usage 
+#        adjust_padding what +/- amount
+#
+# Sample
+#        adjust_padding focused + 20
+#
+
+  bspc config -d $1 right_padding  $((`bspc config -d $1 right_padding`  $2 20 )); \
+  bspc config -d $1 left_padding   $((`bspc config -d $1 left_padding`   $2 20 )); \
+  bspc config -d $1 bottom_padding $((`bspc config -d $1 bottom_padding` $2 20 )); \
+  bspc config -d $1 top_padding    $((`bspc config -d $1 top_padding`    $2 20 ));
+

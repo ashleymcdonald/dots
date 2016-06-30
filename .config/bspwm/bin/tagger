@@ -1,0 +1,17 @@
+#!/bin/bash
+# script to tag and fetch windows
+
+[[ $# -ne 2 ]] && exit 101
+# create a directory for storing id info
+tagdir="/tmp/tagdir"
+[[ -d $tagdir ]] || mkdir "$tagdir"
+# use 1 file per tag
+tagfile="$tagdir/$2"
+case $1 in
+    tag)
+        echo -n $(bspc query -N -n) > "$tagfile"
+        ;;
+    fetch)
+        [[ -f $tagfile ]] && bspc node $(< $tagfile) -d $(bspc query -D -d)
+        ;;
+esac

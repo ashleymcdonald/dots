@@ -1,0 +1,25 @@
+[global_config]
+  borderless = True
+  focus = mouse
+  handle_size = 5
+  tab_position = left
+[keybindings]
+[layouts]
+  [[default]]
+    [[[child1]]]
+      parent = window0
+      type = Terminal
+    [[[window0]]]
+      parent = ""
+      type = Window
+[plugins]
+[profiles]
+  [[default]]
+    scrollbar_position = hidden
+    background_darkness = 0.90
+    background_image = None
+    background_type = transparent
+    font = Inconsolata for Powerline 11
+    show_titlebar = False
+    use_system_font = False
+palette = "#2d5d8c:#4a6969:#739874:#3d79ab:#9ac281:#599aba:#87b3cb:#afcbd6:#cadea0:#989ca8:#6a5452:#916f69:#b08a82:#c3aeb6:#ddb589:#da9753"

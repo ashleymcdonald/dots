@@ -1,0 +1,82 @@
+# vim:ft=dosini
+#
+# Termite configuration
+#
+
+[options]
+resize_grip = false
+scroll_on_output = false
+scroll_on_keystroke = true
+audible_bell = false
+visible_bell = true
+mouse_autohide = false
+allow_bold = true
+dynamic_title = true
+urgent_on_bell = true
+clickable_url = true
+scrollback_lines = 10000
+search_wrap = true
+
+# "system", "on" or "off"
+cursor_blink = on
+
+# "block", "underline" or "ibeam"
+cursor_shape = block
+
+# emit escape sequences for other keys modified by Control
+#modify_other_keys = false
+
+;font = Terminus 8
+;font = Dina,11
+;font = tewi 9
+;font = Hack 10
+;font = GohuFont,Regular,10
+;font = Literation Mono 11
+;font = CamingoCode,Bold 11
+;font = Fantasque Sans Mono,Regular 11
+;font = DejaVu Sans Mono for Powerline, 10
+;font = Droid Sans Mono for Powerline 10
+;font = Source Code Pro for Powerline, 10
+;font = Inconsolata for Powerline,Regular 10
+;font = termsyn, 9
+;font = Terminess Powerline, 10
+;font = Ohsnap, Regular, 9
+;font = Fira Mono, 9
+;font = Roboto Mono for Powerline, 8
+;font = Literation Mono Powerline, 8
+;font = Literation Mono Powerline, 9
+;font = envypn, regular, 10
+;font = Inconsolata for Powerline, Regular 10
+;font = Roboto Mono for Powerline, 8
+font = termsyn, 9
+font = envypn, regular, 10
+font = Inconsolata for Powerline, regular, 10
+
+[colors]
+
+foreground      = #d8d8d8
+foreground_bold = #d8d8d8
+cursor          = #d8d8d8
+background      = rgba(24, 24, 24, .98)
+
+# --- CUT --- 
+
+
+
+
+color0 = #2d5d8c
+color1 = #4a6969
+color2 = #739874
+color3 = #3d79ab
+color4 = #9ac281
+color5 = #599aba
+color6 = #87b3cb
+color7 = #afcbd6
+color8 = #cadea0
+color9 = #989ca8
+color10 = #6a5452
+color11 = #916f69
+color12 = #b08a82
+color13 = #c3aeb6
+color14 = #ddb589
+color15 = #da9753

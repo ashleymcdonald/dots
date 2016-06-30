@@ -1,0 +1,35 @@
+#!/usr/bin/env bash
+
+if xrandr | egrep -e  "0\+0 [^\(]*" -o | grep -q "left" ; then
+	#statements
+	echo "its left !!"
+	if [ $1 = "left" ] ; then
+		xrandr -o inverted
+	else		
+		xrandr -o normal
+	fi
+elif xrandr | egrep -e  "0\+0 [^\(]*" -o | grep -q "inverted" ; then
+	echo "upside down.."
+	if [ $1 = "left" ] ; then
+		xrandr -o right
+	else		
+		xrandr -o left
+	fi
+
+elif xrandr | egrep -e  "0\+0 [^\(]*" -o | grep -q "right" ; then
+	echo "its right :)"
+	if [ $1 = "left" ] ; then
+		xrandr -o normal
+	else		
+		xrandr -o inverted
+	fi
+else
+	echo "must be normal"
+	if [ $1 = "left" ] ; then
+		xrandr -o left
+	else		
+		xrandr -o right
+	fi
+fi
+
+
