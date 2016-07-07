@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-size_border=2
+size_border=3
 size_gap=20
 
 padding_top=37
@@ -8,7 +8,8 @@ padding_bottom=30
 padding_left=-5
 padding_right=-5
 
-color_focused_border="#2d5d8c"
+color_lemonbuddy_border="#cccd4547"
+color_focused_border="#cd4547"
 color_normal_border="#2e2e2e"
 color_active_border="#2e2e2e"
 color_presel_feedback="#aaaaaa"
@@ -17,7 +18,7 @@ setting_borderless_monocle='true'
 setting_gapless_monocle='true'
 
 lemonbuddy_config="$CURRENT_THEME/lemonbuddy"
-lemonbuddy_bars=(top_line top bottom_line bottom)
+lemonbuddy_bars=(top bottom)
 
 if xrandr | grep -q "HDMI-1 connected"; then
   lemonbuddy_bars+=(external_bottom)
@@ -25,14 +26,16 @@ fi
 
 theme::post_bspwmrc()
 {
-  xdrawrect eDP1 top 100% 3 0 27 '#ff000000' effectline-top "$(lemonbuddy top -c "$lemonbuddy_config" --print-wmname)" &
+  xdrawrect eDP1 top 100% 3 0 34 $color_lemonbuddy_border effectline-top "$(lemonbuddy top -c "$lemonbuddy_config" --print-wmname)" &
+  xdrawrect eDP1 bottom 100% 3 0 30 $color_lemonbuddy_border effectline-bottom "$(lemonbuddy bottom -c "$lemonbuddy_config" --print-wmname)" &
 
   if xrandr | grep -q "HDMI-1 connected"; then
     bspc config -m HDMI-1 top_padding 0
     bspc config -m HDMI-1 bottom_padding $padding_top
+    xdrawrect HDMI-1 bottom 100% 3 0 27 '#ff000000' effectline-bottom "$(lemonbuddy external_bottom -c "$lemonbuddy_config" --print-wmname)" &
   fi
 
-  xdrawrect HDMI-1 bottom 100% 3 0 27 '#ff000000' effectline-bottom "$(lemonbuddy external_bottom -c "$lemonbuddy_config" --print-wmname)" &
   $XDG_CONFIG_HOME/stalonetray/init.sh &
+
   bash -c 'sleep 3 && xdo raise -n stalonetray' &
 }

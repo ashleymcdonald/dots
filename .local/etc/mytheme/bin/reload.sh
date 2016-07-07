@@ -5,13 +5,13 @@ max_bright=200
 threshold=75
 transparency="cc"
 
-wallpapers=(~/Pictures/Wallpapers/*)
-IMG=${1:-`printf "%s\n" "${wallpapers[RANDOM % ${#wallpapers[@]}]}"`}
+## wallpapers=(~/Pictures/Wallpapers/*)
+IMG=${1:-"~/.wallpaper"}
 
-rm ~/.wallpaper
-ln -s $IMG ~/.wallpaper
+#rm ~/.wallpaper
+#ln -s $IMG ~/.wallpaper
 
-feh --bg-fill $IMG
+#feh --bg-fill $IMG
 
 ############################
 # Termite
@@ -30,7 +30,7 @@ base_color_transparency=`echo $base_color | sed "s/#/#$transparency/"`
 
 ############################
 # bspwm
-cat $CURRENT_THEME/bspwm | sed -e "s/color_focused_border.*/color_focused_border=\"$base_color\"/" | sed -e "s/^color_lemonbuddy_border=.*/color_lemonbuddy_border=\"$base_color_transparency\"/" > /tmp/bspwm.theme
+cat $CURRENT_THEME/bspwm | sed -e "s/color_focused_border.*/color_focused_border=\"$base_color\"/" > /tmp/bspwm.theme
 mv /tmp/bspwm.theme $CURRENT_THEME/bspwm
 
 ############################

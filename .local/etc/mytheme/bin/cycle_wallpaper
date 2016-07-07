@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+
+wallpapers=(~/Pictures/Wallpapers/*)
+IMG=${1:-`printf "%s\n" "${wallpapers[RANDOM % ${#wallpapers[@]}]}"`}
+
+rm ~/.wallpaper
+ln -s $IMG ~/.wallpaper
+
+feh --bg-fill $IMG

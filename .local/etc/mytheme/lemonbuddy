@@ -3,7 +3,7 @@
 ; throttle_limit = 3
 
 [settings]
-core_color = #cc2d5d8c
+core_color = #cccd4547
 
 [bar/top_line]
 offset_y = 34
