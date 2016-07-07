@@ -146,6 +146,13 @@ super + shift + {_,ctrl + }bracket{left,right}
 super + {_,shift + }{1-9,0}
   bspc {desktop -f,node -d} focused:^{1-9,10}
 
+# tag
+super + ctrl + shift + {1-9}
+    $LOCAL_ETC/bspwm/bin/tagger tag {1-9}
+#fetch
+super + ctrl + {1-9}
+    $LOCAL_ETC/bspwm/bin/tagger fetch {1-9}
+
 # Toggle fullscreen/floating state
 super + shift + f
   bspc node -t \~fullscreen
@@ -218,8 +225,12 @@ super + @button{1-3}
 # Reload configuration
 super + Escape
   $LOCAL_BIN/reloadwm  
+
 super + shift + Escape
   $CURRENT_THEME/bin/change && $LOCAL_BIN/reloadwm  
+
+super + ctrl + Escape
+  $CURRENT_THEME/bin/change
 
 # Quit
 super + shift + Escape
